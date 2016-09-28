@@ -4,7 +4,15 @@ module.exports = function(app){
 		var livrosDAO = new app.infra.LivrosDAO(connection);
 
 		livrosDAO.lista(function(err, results){
-			res.render('livros/lista', {lista:results});
+			res.format({
+				html: function(){
+					res.render('livros/lista', {lista:results});		
+				},
+				json: function(){
+					res.json(results);
+				}
+			});
+			
 		});
 
 		connection.end();		
@@ -28,10 +36,12 @@ module.exports = function(app){
 	app.post('/livros', function(req, res){
 		
 		var livro = req.body;
+		console.log(livro);
 		
 		var connection = app.infra.connectionFactory();
 		var livrosDAO = new app.infra.LivrosDAO(connection);
 		livrosDAO.salva(livro, function(err, results){
+			console.log(err);
 			res.redirect('/livros');
 		});		
 	});
