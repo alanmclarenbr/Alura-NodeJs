@@ -19,7 +19,7 @@ var client = http.request(configuracoes, function(res){
 });
 
 var livro = {
-	titulo: 'Introdução ao Android',
+	titulo: '',
 	descricao: 'Android para iniciantes com Android-Studio',
 	preco: 130
 }

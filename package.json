@@ -13,6 +13,7 @@
     "ejs": "^2.5.2",
     "express": "^4.14.0",
     "express-load": "^1.1.15",
+    "express-validator": "^2.20.10",
     "mysql": "^2.11.1"
   }
 }
